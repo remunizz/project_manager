@@ -1,0 +1,14 @@
+<% include ../partials/header %>
+	
+	<h2><%= title %></h2>
+
+	<table class='table table-bordered table-striped'>
+		<tr><th>Nome</th><th>Data Início</th></tr>
+		<% for(index in projetos){ %>
+			<tr><td><a href='/projeto/<%= projetos[index]._id %>'><%= projetos[index].nome %></a></td><td><%= projetos[index].data_inicio %></td></tr>
+		<% } %>
+	</table>
+
+	<a class='btn btn-primary' href='/projetos/novo/' >Criar novo projeto</a>
+
+<% include ../partials/footer %>

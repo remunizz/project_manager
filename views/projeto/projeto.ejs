@@ -1,0 +1,12 @@
+<% include ../partials/header %>
+	
+	<h2><%= title %></h2>
+
+	<table class='table'>
+		<tr><th>Nome do Projeto</th><td><%= projeto.nome %></td></tr>
+		<tr><th>Data</th><td><%= projeto.data_inicio %></td></tr>
+	</table>
+
+	<a class='btn btn-default' href='/projetos/'>Voltar</a>
+
+<% include ../partials/footer %>
