@@ -1,11 +1,13 @@
-var express      = require('express');
-var path         = require('path');
-var favicon      = require('serve-favicon');
-var logger       = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser   = require('body-parser');
-var load         = require('express-load');
-var mongoose     = require("mongoose");
+var express        = require('express');
+var path           = require('path');
+var favicon        = require('serve-favicon');
+var logger         = require('morgan');
+var cookieParser   = require('cookie-parser');
+var bodyParser     = require('body-parser');
+var load           = require('express-load');
+var mongoose       = require("mongoose");
+var moment         = require("moment");
+var methodOverride = require("method-override");
 
 var app          = express();
 
@@ -19,8 +21,10 @@ global.db = mongoose.connect("mongodb://localhost/project_manager");
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
+app.use(cookieParser('keyboard cat'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
+app.listen(3000);
 
 load('models')
   .then('controllers')

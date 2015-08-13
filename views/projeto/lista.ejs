@@ -3,12 +3,18 @@
 	<h2><%= title %></h2>
 
 	<table class='table table-bordered table-striped'>
-		<tr><th>Nome</th><th>Data Início</th></tr>
-		<% for(index in projetos){ %>
-			<tr><td><a href='/projeto/<%= projetos[index]._id %>'><%= projetos[index].nome %></a></td><td><%= projetos[index].data_inicio %></td></tr>
-		<% } %>
+		<thead><tr><th>Nome</th><th>Data Início</th><th></th></tr></thead>
+		<tbody>
+			<% for(index in projetos){ %>
+			<tr>
+				<td><a href='/projeto/<%= projetos[index]._id %>'><%= projetos[index].nome %></a></td>
+				<td><%= moment(projetos[index].data_inicio).format("DD/MM/YYYY") %></td>
+				<td><form action="/projeto/<%= projetos[index]._id %>?_method=DELETE" method='POST'><input type='submit' value='Excluir' class='btn btn-danger' /></form></td>
+			</tr>
+			<% } %>
+		</tbody>
 	</table>
 
-	<a class='btn btn-primary' href='/projetos/novo/' >Criar novo projeto</a>
+	<a class='btn btn-primary' href='/projeto/' >Criar novo projeto</a>
 
 <% include ../partials/footer %>

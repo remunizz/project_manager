@@ -3,7 +3,9 @@ module.exports = function(app){
 
 	var projetoSchema = Schema({
 		nome: {type: String, required: true},
-		data_inicio: {type: Date, required: true}
+		// status: {type: String, required: true},
+		data_inicio: {type: Date, required: true},
+		// data_termino: {type: Date, required: false}
 	});
 
 	return db.model('projetos', projetoSchema);

@@ -1,6 +1,10 @@
 <% include ../partials/header %>
 	
 	<h2><%= title %></h2>
+	
+	<% flash.forEach(function(message){ %>
+		<%= message %>
+	<% }); %>
 
 	<table class='table'>
 		<tr><th>Nome do Projeto</th><td><%= projeto.nome %></td></tr>
