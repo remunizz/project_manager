@@ -6,6 +6,12 @@ module.exports = function(app){
 		// status: {type: String, required: true},
 		data_inicio: {type: Date, required: true},
 		// data_termino: {type: Date, required: false}
+		tarefas: [
+			{
+				titulo: {type: String, required: true},
+				descricao: {type: String}
+			}
+		]
 	});
 
 	return db.model('projetos', projetoSchema);

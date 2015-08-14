@@ -1,13 +1,25 @@
-<% include ../partials/header %>
-<form id='login' method='POST' class='col-md-4 col-md-offset-4'>
-	<div class="form-group">
-		<label class="sr-only" for="usuario_email">E-Mail</label>
-		<input type="text" class="form-control" require='true' name='usuario[email]' id='usuario_email' placeholder='E-mail' />
-	</div>
-	<div class="form-group">
-		<label class="sr-only" for="usuario_senha">Senha</label>
-		<input type="password" class="form-control" require='true' name='usuario[senha]' id='usuario_senha' placeholder='Senha' />
-	</div>
-	<input type='submit' value='Entrar' class="btn btn-default" />
-</form>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= (typeof(title) != "undefined")?title + ' - ':'' %>Project Manager</title>
+		<link href="/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+		<link href="/stylesheets/style.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script type="text/javascript" src="/bootstrap/dist/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	<% flash.forEach(function(message){ %>
+		<div class="alert alert-<%= message.type %>" role="alert"><%= message.message %></div>
+	<% }); %>
+	<form id='login' method='POST' class='col-md-4 col-md-offset-4'>
+		<div class="form-group">
+			<label class="sr-only" for="usuario_email">E-Mail</label>
+			<input type="text" class="form-control" require='true' name='usuario[email]' id='usuario_email' placeholder='E-mail' />
+		</div>
+		<div class="form-group">
+			<label class="sr-only" for="usuario_senha">Senha</label>
+			<input type="password" class="form-control" require='true' name='usuario[senha]' id='usuario_senha' placeholder='Senha' />
+		</div>
+		<input type='submit' value='Entrar' class="btn btn-default" />
+	</form>
 <% include ../partials/footer %>

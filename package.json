@@ -22,6 +22,7 @@
 	"moment"         : "~2.10.3",
 	"method-override": "~2.3.3",
 	"flash"			 : "~1.1.0",
-	"express-session": "1.11.3"
+	"express-session": "1.11.3",
+	"connect-flash"  : "0.1.1"
   }
 }

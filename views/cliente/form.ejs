@@ -1,0 +1,9 @@
+<% include ../partials/header %>
+<h2><%= title %></h2>
+<form method="POST" action="<%= (cliente._id)?"?_method=PUT":"" %>">
+	<div class="form-group">
+		<label>Nome do cliente</label><input name='cliente[nome]' class="form-control" id='cliente_nome' type='text' required value='<%= cliente.nome %>' />
+	</div>
+	<input type='submit' class="btn btn-success" />
+</form>
+<% include ../partials/footer %>

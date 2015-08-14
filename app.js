@@ -8,8 +8,12 @@ var load           = require('express-load');
 var mongoose       = require("mongoose");
 var moment         = require("moment");
 var methodOverride = require("method-override");
+var session        = require("express-session");
+var flash          = require('flash');
 
 var app          = express();
+
+var porta_aplicacao = 3000;
 
 // view engine setup
 app.set('view engine', 'ejs');
@@ -24,7 +28,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser('keyboard cat'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
-app.listen(3000);
+app.use(session());
+app.use(flash());
+app.listen(porta_aplicacao);
 
 load('models')
   .then('controllers')
@@ -45,11 +51,11 @@ app.use(function(req, res, next) {
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
+	res.status(err.status || 500);
+	res.render('error', {
+	  message: err.message,
+	  error: err
+	});
   });
 }
 
@@ -58,10 +64,11 @@ if (app.get('env') === 'development') {
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
-    message: err.message,
-    error: {}
+	message: err.message,
+	error: {}
   });
 });
 
 
 module.exports = app;
+console.log('Aplicação inicializada na porta ' + porta_aplicacao);

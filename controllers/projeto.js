@@ -8,15 +8,17 @@ module.exports = function(app){
 			var projeto = new projetoModel(req.body.projeto);
 			projeto.save(function(err){ console.error(err); });
 
-			//req.flash('success', "Projeto gravado");
-			res.send('/projetos/');
+			req.flash('success', "Projeto criado com sucesso!");
+			res.redirect('/projetos/');
 		},
 
-		delete: function(req,res,next){
+		delete: function(req,res){
 			if(typeof(req.params.id) != "undefined"){
 				projetoModel.remove({_id: req.params.id}, function(err){
 					if(err) throw err;
-					next();
+					
+					req.flash('success', "Projeto excluído com sucesso!");
+					res.redirect('/projetos/');
 				});
 			}
 		},
@@ -57,11 +59,13 @@ module.exports = function(app){
 			}
 		},
 
-		update: function(req,res,next){
+		update: function(req,res){
 			if(typeof(req.params.id) != "undefined"){
 				projetoModel.findByIdAndUpdate(req.params.id, req.body.projeto, function(err, projeto){
 					if(err) throw err;
-					next();
+
+					req.flash('success', "Projeto alterado com sucesso!");
+					res.redirect('/projetos/');
 				});
 			}
 		}
