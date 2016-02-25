@@ -4,9 +4,11 @@ module.exports = function(app){
 
 	var tarefaController = {
 
+		/* modulo em desenvolvimento comentado para evitar erro de inicialização
 		function getAll(req, res){
 			
 		}
+		*/
 
 	};
 
