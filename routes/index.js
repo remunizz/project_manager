@@ -13,7 +13,7 @@ module.exports = function(app){
 	app.put('/projeto/:id/', 	app.controllers.projeto.update);
 	app.delete('/projeto/:id/', app.controllers.projeto.delete);
 	
-	app.get('/projeto/:id/tarefas/',app.controllers.terafa.getAll);
+	//app.get('/projeto/:id/tarefas/',app.controllers.terafa.getAll);
 	
 	app.get('/clientes/', 		app.controllers.cliente.getAll);
 	app.get('/cliente/', 		app.controllers.cliente.get);
