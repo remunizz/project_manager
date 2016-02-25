@@ -10,7 +10,7 @@
 ## Acesso
 1. Ir para o diretório "project_manager"
 2. Iniciar Mongodb `mongod`
-3. `npm start`
+3. `node app.js`
 4. Iniciar seu navegador
 5. Ir para o caminho "http://localhost:3000"
 
